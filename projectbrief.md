@@ -1,6 +1,7 @@
 # Front-End Development Group Project
 
 The TikTok Youth Camp 2022 Camping Toolkit can be found [here](bit.ly/CampingToolkit).
+
 The actual brief for the chosen group project can be found [here](https://bytedance.feishu.cn/docx/doxcnLQi3vdlVFnWnz7qxHwMzke).
 
 ## Instructions
