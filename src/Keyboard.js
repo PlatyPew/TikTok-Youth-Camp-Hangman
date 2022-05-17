@@ -1,13 +1,21 @@
 import "./Keyboard.css";
 
 function Key({ character }) {
-    return <div className="character">{character}</div>;
+    function sayChar() {
+        console.log(character);
+    }
+
+    return (
+        <button className="character" onClick={sayChar}>
+            {character}
+        </button>
+    );
 }
 
 function KeyboardRow({ letters }) {
-    const foo = letters.map((letter) => <Key character={letter} />);
+    const letter = letters.map((letter) => <Key key={letter} character={letter} />);
 
-    return <div className="row"> {foo} </div>;
+    return <section className="row"> {letter} </section>;
 }
 
 function Keyboard() {
@@ -16,11 +24,11 @@ function Keyboard() {
     const row3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
     return (
-        <div>
+        <section>
             <KeyboardRow letters={row1} />
             <KeyboardRow letters={row2} />
             <KeyboardRow letters={row3} />
-        </div>
+        </section>
     );
 }
 
