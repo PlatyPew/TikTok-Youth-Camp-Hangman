@@ -1,0 +1,12 @@
+.word {
+    @apply mb-8 flex space-x-1.5 place-content-center;
+}
+
+.letter {
+    @apply text-3xl text-neutral-100 font-bold
+        border-b-4 w-7;
+}
+
+.space {
+    @apply w-3;
+}
