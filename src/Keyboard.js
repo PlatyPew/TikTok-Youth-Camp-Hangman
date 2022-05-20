@@ -24,11 +24,11 @@ function Keyboard() {
     const row3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
     return (
-        <section>
+        <>
             <KeyboardRow letters={row1} />
             <KeyboardRow letters={row2} />
             <KeyboardRow letters={row3} />
-        </section>
+        </>
     );
 }
 

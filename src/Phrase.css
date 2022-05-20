@@ -3,10 +3,13 @@
 }
 
 .letter {
-    @apply text-3xl text-neutral-100 font-bold
-        border-b-4 w-7;
+    @apply text-3xl text-neutral-100 font-bold;
+}
+
+.blank {
+    @apply border-b-4 h-10 w-7;
 }
 
 .space {
-    @apply w-3;
+    @apply w-5;
 }
