@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import "./App.css";
 
@@ -10,7 +10,7 @@ function App() {
     return (
         <div className="App">
             <h1 className="text-4xl text-neutral-100 py-3">Welcome to Hangman!</h1>
-            <Phrase ref={phraseRef} phrase="Lorem Ipsum" />
+            <Phrase ref={phraseRef} />
 
             <Keyboard ref={phraseRef} />
         </div>

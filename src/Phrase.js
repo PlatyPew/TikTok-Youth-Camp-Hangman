@@ -13,33 +13,43 @@ function Space() {
     return <span className="space"></span>;
 }
 
-const Phrase = forwardRef(({ phrase }, ref) => {
-    phrase = [...phrase.toUpperCase()];
-
+const Phrase = forwardRef((_, ref) => {
+    const phrase = "Lorem Ipsum";
     // Set the current field
     const [state, setState] = useState(() => {
-        return phrase.map((letter) => {
-            if (letter !== " ") return "_";
-            return letter;
-        });
+        return {
+            mistake: 0,
+            answer: [...phrase.toUpperCase()],
+            guessed: [...phrase.toUpperCase()].map((letter) => {
+                if (letter !== " ") return "_";
+                return letter;
+            }),
+        };
     });
 
     useImperativeHandle(ref, () => ({
         // Fill the letter if it's in the phrase
-        fillLetter: (letter) => {
-            if (phrase.includes(letter))
-                setState((prevField) => {
-                    return phrase.map((value, i) => {
-                        if (value === letter) return letter;
-                        return prevField[i];
-                    });
+        handleGuess: (letter) => {
+            if (state.answer.includes(letter))
+                setState((prevState) => {
+                    return {
+                        ...prevState,
+                        guessed: state.answer.map((value, i) => {
+                            if (value === letter) return letter;
+                            return prevState.guessed[i];
+                        }),
+                    };
+                });
+            else
+                setState((prevState) => {
+                    return { ...prevState, mistake: prevState.mistake + 1 };
                 });
         },
     }));
 
     return (
         <div className="word">
-            {state.map((letter) => {
+            {state.guessed.map((letter) => {
                 if (letter === " ") return <Space />;
                 if (letter === "_") return <Blank />;
                 return <Letter letter={letter} />;

@@ -9,7 +9,7 @@ const Key = forwardRef(({ character }, ref) => {
             className="character"
             disabled={disable}
             onClick={() => {
-                ref.current.fillLetter(character);
+                ref.current.handleGuess(character);
                 setDisable(true);
             }}
         >
