@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import "./Phrase.css";
 
-import getRandomPhrase from "./WordBank/randomword";
+import { getRandomPhrase, getRandomCategory } from "./WordBank/randomword";
 
 function Letter({ letter }) {
     return <span className="letter blank">{letter}</span>;
@@ -16,18 +16,22 @@ function Space() {
 }
 
 const Phrase = forwardRef((_, ref) => {
-    // Set the current field
-    const [state, setState] = useState(() => {
-        const phrase = getRandomPhrase();
+    const reset = () => {
+        const category = getRandomCategory();
+        const phrase = getRandomPhrase(category);
         return {
             mistake: 0,
+            category: category,
             answer: [...phrase.toUpperCase()],
             guessed: [...phrase.toUpperCase()].map((letter) => {
                 if (letter !== " ") return "_";
                 return letter;
             }),
         };
-    });
+    };
+
+    // Set the current field
+    const [state, setState] = useState(() => reset());
 
     useImperativeHandle(ref, () => ({
         // Fill the letter if it's in the phrase
@@ -47,16 +51,20 @@ const Phrase = forwardRef((_, ref) => {
                     return { ...prevState, mistake: prevState.mistake + 1 };
                 });
         },
+        handleReset: () => setState(reset()),
     }));
 
     return (
-        <div className="word">
-            {state.guessed.map((letter) => {
-                if (letter === " ") return <Space />;
-                if (letter === "_") return <Blank />;
-                return <Letter letter={letter} />;
-            })}
-        </div>
+        <>
+            <main className="word">
+                {state.guessed.map((letter) => {
+                    if (letter === " ") return <Space />;
+                    if (letter === "_") return <Blank />;
+                    return <Letter letter={letter} />;
+                })}
+            </main>
+            <p id="category">Category: {state.category}</p>
+        </>
     );
 });
 

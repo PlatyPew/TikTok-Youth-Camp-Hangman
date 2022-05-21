@@ -1,5 +1,5 @@
 .word {
-    @apply mb-8 flex space-x-1.5 place-content-center;
+    @apply mb-6 flex space-x-1.5 place-content-center;
 }
 
 .letter {
@@ -12,4 +12,8 @@
 
 .space {
     @apply w-5;
+}
+
+#category {
+    @apply mb-8 text-2xl text-neutral-100;
 }

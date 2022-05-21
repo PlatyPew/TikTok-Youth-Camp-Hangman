@@ -13,6 +13,7 @@ function App() {
             <Phrase ref={phraseRef} />
 
             <Keyboard ref={phraseRef} />
+            <button id="reset" onClick={() => phraseRef.current.handleReset()}>RESET</button>
         </div>
     );
 }

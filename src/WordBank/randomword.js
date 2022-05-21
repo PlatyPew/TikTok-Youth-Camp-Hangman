@@ -16,9 +16,9 @@ const getRandomCategory = () => {
 };
 
 // Get random phrase from category
-const getRandomPhrase = () => {
-    const phrases = wordbank[getRandomCategory()];
+const getRandomPhrase = (category) => {
+    const phrases = wordbank[category];
     return phrases[Math.floor(Math.random() * phrases.length)];
 };
 
-export default getRandomPhrase;
+export { getRandomCategory, getRandomPhrase };
