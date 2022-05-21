@@ -1,9 +1,18 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import "./Keyboard.css";
 
 const Key = forwardRef(({ character }, ref) => {
+    const [disable, setDisable] = useState(false);
+
     return (
-        <button className="character" onClick={() => ref.current.fillLetter(character)}>
+        <button
+            className="character"
+            disabled={disable}
+            onClick={() => {
+                ref.current.fillLetter(character);
+                setDisable(true);
+            }}
+        >
             {character}
         </button>
     );
