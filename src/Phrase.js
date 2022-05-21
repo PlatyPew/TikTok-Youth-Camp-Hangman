@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import "./Phrase.css";
 
 function Letter({ letter }) {
@@ -13,7 +13,7 @@ function Space() {
     return <span className="space"></span>;
 }
 
-function Phrase({ phrase }) {
+const Phrase = forwardRef(({ phrase }, ref) => {
     phrase = [...phrase.toUpperCase()];
 
     // Set the current field
@@ -24,16 +24,18 @@ function Phrase({ phrase }) {
         });
     });
 
-    // Fill the letter if it's in the phrase
-    const fillLetter = (letter) => {
-        if (phrase.includes(letter))
-            setState((prevField) => {
-                return phrase.map((value, i) => {
-                    if (value === letter) return letter;
-                    return prevField[i];
+    useImperativeHandle(ref, () => ({
+        // Fill the letter if it's in the phrase
+        fillLetter: (letter) => {
+            if (phrase.includes(letter))
+                setState((prevField) => {
+                    return phrase.map((value, i) => {
+                        if (value === letter) return letter;
+                        return prevField[i];
+                    });
                 });
-            });
-    };
+        },
+    }));
 
     return (
         <div className="word">
@@ -44,6 +46,6 @@ function Phrase({ phrase }) {
             })}
         </div>
     );
-}
+});
 
 export default Phrase;
