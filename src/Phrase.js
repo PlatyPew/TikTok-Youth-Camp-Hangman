@@ -1,6 +1,8 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
 import "./Phrase.css";
 
+import getRandomPhrase from "./WordBank/randomword";
+
 function Letter({ letter }) {
     return <span className="letter blank">{letter}</span>;
 }
@@ -14,9 +16,9 @@ function Space() {
 }
 
 const Phrase = forwardRef((_, ref) => {
-    const phrase = "Lorem Ipsum";
     // Set the current field
     const [state, setState] = useState(() => {
+        const phrase = getRandomPhrase();
         return {
             mistake: 0,
             answer: [...phrase.toUpperCase()],
