@@ -1,41 +1,41 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import "./Keyboard.css";
 
-const Key = forwardRef(({ character }, ref) => {
+function Key({ character, guess }) {
     const [disable, setDisable] = useState(false);
 
+    const handleGuess = (letter) => {
+        guess(letter);
+        setDisable(true);
+    };
+
     return (
-        <button
-            className="character"
-            disabled={disable}
-            onClick={() => {
-                ref.current.handleGuess(character);
-                setDisable(true);
-            }}
-        >
+        <button className="character" disabled={disable} onClick={() => handleGuess(character)}>
             {character}
         </button>
     );
-});
+}
 
-const KeyboardRow = forwardRef(({ letters }, ref) => {
-    const letter = letters.map((letter) => <Key ref={ref} key={letter} character={letter} />);
+function KeyboardRow({ letters, guess }) {
+    const letter = letters.map((letter) => <Key key={letter} character={letter} guess={guess} />);
 
-    return <section className="row"> {letter} </section>;
-});
+    return <section className="row">{letter}</section>;
+}
 
-const Keyboard = forwardRef((_, ref) => {
+function Keyboard({ guess }) {
     const row1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const row2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
     const row3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
+    const handleReset = () => {};
+
     return (
-        <>
-            <KeyboardRow ref={ref} letters={row1} />
-            <KeyboardRow ref={ref} letters={row2} />
-            <KeyboardRow ref={ref} letters={row3} />
-        </>
+        <section>
+            <KeyboardRow letters={row1} guess={guess} />
+            <KeyboardRow letters={row2} guess={guess} />
+            <KeyboardRow letters={row3} guess={guess} />
+        </section>
     );
-});
+}
 
 export default Keyboard;

@@ -13,7 +13,3 @@
 .space {
     @apply w-5;
 }
-
-#category {
-    @apply mb-8 text-2xl text-neutral-100;
-}
