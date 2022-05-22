@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import "./App.css";
 
@@ -6,6 +6,8 @@ import Phrase from "./Phrase";
 import Keyboard from "./Keyboard";
 
 import { getRandomPhrase, getRandomCategory } from "./WordBank/randomword";
+
+const MAX_MISTAKES = 9;
 
 function App() {
     const reset = () => {
@@ -24,6 +26,8 @@ function App() {
 
     // Set the current field
     const [state, setState] = useState(() => reset());
+    const [gameOver, setGameOver] = useState(false);
+    const [win, setWin] = useState(false);
 
     // Fill the letter if it's in the phrase
     const handleGuess = (letter) => {
@@ -52,12 +56,39 @@ function App() {
 
     const handleReset = () => {
         setState(reset());
-        keyRef.current.forEach((ref) => ref.handleReset());
+        setGameOver(false);
+        setWin(false);
+        keyRef.current.forEach((ref) => ref.handleDisable(false));
     };
+
+    useEffect(() => {
+        if (state.mistake === MAX_MISTAKES) {
+            setGameOver(true);
+            setState((prevState) => {
+                return { ...prevState, guessed: prevState.answer };
+            });
+            keyRef.current.forEach((ref) => ref.handleDisable(true));
+        }
+    }, [state.mistake]);
+
+    useEffect(() => {
+        if (state.guessed.join("") === state.answer.join("")) {
+            keyRef.current.forEach((ref) => ref.handleDisable(true));
+            if (!gameOver) setWin(true);
+        }
+    }, [state.guessed]);
 
     return (
         <main className="App">
             <h1 id="header">Welcome to Hangman!</h1>
+            {win ? <p className="score">You Solved It!</p> : <></>}
+            {gameOver ? (
+                <p className="score">Game Over!</p>
+            ) : (
+                <p className="score">
+                    Mistakes: {state.mistake}/{MAX_MISTAKES}
+                </p>
+            )}
             <Phrase guessed={state.guessed} />
             <p id="category">Category: {state.category}</p>
 
