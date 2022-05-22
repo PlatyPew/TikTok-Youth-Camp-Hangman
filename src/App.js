@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import "./App.css";
 
@@ -42,7 +42,18 @@ function App() {
                 return { ...prevState, mistake: prevState.mistake + 1 };
             });
     };
-    const handleReset = () => setState(reset());
+
+    const keyRef = useRef([]);
+    keyRef.current = [];
+
+    const addToRefs = (el) => {
+        if (el && !keyRef.current.includes(el)) keyRef.current.push(el);
+    };
+
+    const handleReset = () => {
+        setState(reset());
+        keyRef.current.forEach((ref) => ref.handleReset());
+    };
 
     return (
         <main className="App">
@@ -50,7 +61,7 @@ function App() {
             <Phrase guessed={state.guessed} />
             <p id="category">Category: {state.category}</p>
 
-            <Keyboard guess={handleGuess} />
+            <Keyboard ref={addToRefs} guess={handleGuess} />
             <button id="reset" onClick={handleReset}>
                 Reset
             </button>

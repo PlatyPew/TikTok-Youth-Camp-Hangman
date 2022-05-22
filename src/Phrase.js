@@ -15,10 +15,10 @@ function Space() {
 function Phrase({ guessed }) {
     return (
         <section className="word">
-            {guessed.map((letter) => {
-                if (letter === " ") return <Space />;
-                if (letter === "_") return <Blank />;
-                return <Letter letter={letter} />;
+            {guessed.map((letter, index) => {
+                if (letter === " ") return <Space key={index} />;
+                if (letter === "_") return <Blank key={index} />;
+                return <Letter key={index} letter={letter} />;
             })}
         </section>
     );

@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import "./Keyboard.css";
 
-function Key({ character, guess }) {
+const Key = forwardRef(({ character, guess }, ref) => {
     const [disable, setDisable] = useState(false);
 
     const handleGuess = (letter) => {
@@ -9,33 +9,37 @@ function Key({ character, guess }) {
         setDisable(true);
     };
 
+    useImperativeHandle(ref, () => ({
+        handleReset: () => setDisable(false),
+    }));
+
     return (
         <button className="character" disabled={disable} onClick={() => handleGuess(character)}>
             {character}
         </button>
     );
-}
+});
 
-function KeyboardRow({ letters, guess }) {
-    const letter = letters.map((letter) => <Key key={letter} character={letter} guess={guess} />);
+const KeyboardRow = forwardRef(({ letters, guess }, ref) => {
+    const letter = letters.map((letter) => (
+        <Key ref={ref} key={letter} character={letter} guess={guess} />
+    ));
 
     return <section className="row">{letter}</section>;
-}
+});
 
-function Keyboard({ guess }) {
+const Keyboard = forwardRef(({ guess }, ref) => {
     const row1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const row2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
     const row3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
-    const handleReset = () => {};
-
     return (
         <section>
-            <KeyboardRow letters={row1} guess={guess} />
-            <KeyboardRow letters={row2} guess={guess} />
-            <KeyboardRow letters={row3} guess={guess} />
+            <KeyboardRow ref={ref} letters={row1} guess={guess} />
+            <KeyboardRow ref={ref} letters={row2} guess={guess} />
+            <KeyboardRow ref={ref} letters={row3} guess={guess} />
         </section>
     );
-}
+});
 
 export default Keyboard;
