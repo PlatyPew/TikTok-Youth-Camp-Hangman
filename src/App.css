@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+#header {
+    @apply text-4xl text-neutral-100 py-3;
+}
+
+#category {
+    @apply mb-8 text-2xl text-neutral-100;
+}
+
+#reset {
+    @apply items-center justify-center
+    p-2 px-3 my-4 text-lg bg-sky-300 hover:bg-sky-400
+    rounded-md;
+}
