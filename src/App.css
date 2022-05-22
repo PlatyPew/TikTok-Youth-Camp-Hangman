@@ -45,7 +45,7 @@
     @apply mb-8 text-2xl text-neutral-100;
 }
 
-#mistake {
+.score {
     @apply my-2 text-2xl text-neutral-100;
 }
 
