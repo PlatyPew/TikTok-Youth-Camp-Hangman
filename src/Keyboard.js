@@ -10,7 +10,7 @@ const Key = forwardRef(({ character, guess }, ref) => {
     };
 
     useImperativeHandle(ref, () => ({
-        handleReset: () => setDisable(false),
+        handleDisable: (status) => setDisable(status),
     }));
 
     return (
