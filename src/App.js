@@ -76,7 +76,7 @@ function App() {
             keyRef.current.forEach((ref) => ref.handleDisable(true));
             if (!gameOver) setWin(true);
         }
-    }, [state.guessed]);
+    }, [state.guessed, gameOver, state.answer]);
 
     return (
         <main className="App">
