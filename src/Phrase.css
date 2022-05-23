@@ -3,11 +3,11 @@
 }
 
 .letter {
-    @apply text-3xl text-neutral-100 font-bold;
+    @apply text-2xl sm:text-3xl md:text-4xl text-neutral-100 font-bold;
 }
 
 .blank {
-    @apply border-b-4 h-10 w-7;
+    @apply border-b-4 h-9 sm:h-10 md:h-11 w-4 sm:w-6 md:w-8;
 }
 
 .space {
