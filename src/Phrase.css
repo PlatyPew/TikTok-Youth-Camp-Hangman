@@ -1,5 +1,5 @@
 .word {
-    @apply mb-6 flex flex-wrap space-x-1.5 place-content-center;
+    @apply mb-6 mx-4 flex flex-wrap space-x-1.5 place-content-center;
 }
 
 .letter {
