@@ -10,11 +10,14 @@ import { getRandomPhrase, getRandomCategory } from "./WordBank/randomword";
 const MAX_MISTAKES = 9;
 
 function App() {
+    const [streak, setStreak] = useState(0);
+
     const reset = () => {
         const category = getRandomCategory();
         const phrase = getRandomPhrase(category);
         return {
             mistake: 0,
+            streak: streak,
             category: category,
             answer: [...phrase.toUpperCase()],
             guessed: [...phrase.toUpperCase()].map((letter) => {
@@ -68,13 +71,17 @@ function App() {
                 return { ...prevState, guessed: prevState.answer };
             });
             keyRef.current.forEach((ref) => ref.handleDisable(true));
+            setStreak(0);
         }
     }, [state.mistake]);
 
     useEffect(() => {
         if (state.guessed.join("") === state.answer.join("")) {
             keyRef.current.forEach((ref) => ref.handleDisable(true));
-            if (!gameOver) setWin(true);
+            if (!gameOver) {
+                setWin(true);
+                setStreak((prevStreak) => prevStreak + 1);
+            }
         }
     }, [state.guessed, gameOver, state.answer]);
 
@@ -89,6 +96,7 @@ function App() {
                     Mistakes: {state.mistake}/{MAX_MISTAKES}
                 </p>
             )}
+            <p className="score">Streak: {streak}</p>
             <Phrase guessed={state.guessed} />
             <p id="category">Category: {state.category}</p>
 
