@@ -89,17 +89,22 @@ function App() {
         <main className="App">
             <h1 id="header">Welcome to Hangman!</h1>
             {win ? <p className="score">You Solved It!</p> : <></>}
-            {gameOver ? (
-                <p className="score">Game Over!</p>
-            ) : (
-                <p className="score">
-                    Mistakes: {state.mistake}/{MAX_MISTAKES}
-                </p>
-            )}
             <p className="score">Streak: {streak}</p>
+            {gameOver ? (
+                    <p className="score">Game Over!</p>
+                ) : (
+                    <p className="score">
+                        Mistakes: {state.mistake}/{MAX_MISTAKES}
+                    </p>
+                )}
+            <img
+                id="hangman"
+                src={process.env.PUBLIC_URL + `/images/asset-${state.mistake}.png`}
+                alt="hangman-stage-${state.mistake}"
+            />
+
             <Phrase guessed={state.guessed} />
             <p id="category">Category: {state.category}</p>
-
             <Keyboard ref={addToRefs} guess={handleGuess} />
             <button id="reset" onClick={handleReset}>
                 Reset
