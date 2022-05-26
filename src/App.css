@@ -54,3 +54,7 @@
     p-2 px-3 my-4 text-lg bg-sky-300 hover:bg-sky-400
     rounded-md;
 }
+
+#hangman {
+    @apply h-96 mx-auto;
+}
