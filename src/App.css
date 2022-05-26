@@ -38,7 +38,7 @@
 }
 
 #header {
-    @apply text-4xl text-neutral-100 py-3;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-neutral-100 my-8;
 }
 
 #category {
@@ -51,7 +51,7 @@
 
 #reset {
     @apply items-center justify-center
-    p-2 px-3 my-4 text-lg bg-sky-300 hover:bg-sky-400
+    p-1.5 px-2.5 sm:p-2 sm:px-3 my-4 text-lg sm:text-xl md:text-2xl bg-sky-300 hover:bg-sky-400
     rounded-md;
 }
 
