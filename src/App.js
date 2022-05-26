@@ -100,7 +100,7 @@ function App() {
             <img
                 id="hangman"
                 src={process.env.PUBLIC_URL + `/images/asset-${state.mistake}.png`}
-                alt="hangman-stage-${state.mistake}"
+                alt={`hangman-stage-${state.mistake}`}
             />
 
             <Phrase guessed={state.guessed} />
