@@ -4,9 +4,8 @@
 
 -   [The Team](#the-team)
 -   [Short Description](#short-description)
+-   [Directory Tree](#directory-tree)
 -   [Instructions](#instructions)
--   [Screenshots](#screenshots)
--   [Video](#video)
 -   [Project Report](#project-report)
 
 ## The Team
@@ -21,6 +20,13 @@ Our team is called < name of team > and consists of:
 
 ## Short Description
 This hangman game is powered by ReactJS and uses the TailwindCSS framework. It allows the player to guess a word, given a category and 9 failure attempts. The streak score of the player will be calculated.
+
+### Screenshots
+Here are some screenshots of the hangman game. The rest of the screenshots can be found [here](doc/screenshots)
+
+### Video
+Here is a [video](doc/youtubelink) to show how the game is played.
+
 
 ## Directory Tree
 . <br>
@@ -61,7 +67,7 @@ The key JavaScript and CSS files used during development of the hangman game can
 ## Instructions
 
 #### Hosted website
-The hangman game is hosted on GitHub pages Visit [this link](platypew.github.io/tiktok-youth-camp-hangman/) to start playing the game immediately.
+The hangman game is hosted on GitHub pages Visit [this link](https://platypew.github.io/tiktok-youth-camp-hangman/) to start playing the game immediately.
 
 #### Available scripts
 To run the hangman game in the development mode, run the command `npm start`.
@@ -69,5 +75,4 @@ To run the hangman game in the development mode, run the command `npm start`.
 To create a production bundle for the hangman game, run the command `npm run build`.
 
 ## Project Report
-
-[The project report can be found here](https://docs.google.com/document/d/112vHe3Z18GY7w5OVgALU4ktL7k99W8dhX1PWhEqbpyM/edit#). It includes the planning, technical, project and project retrospective documentation.
+[The project report can be found here](doc/report.pdf). It includes the planning, technical, project and project retrospective documentation.
