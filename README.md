@@ -14,7 +14,7 @@ Our team is called < name of team > and consists of:
 
 -   Aster Angelic Leong
 -   Varun Teja Bondugula
--   Cheng Nee
+-   Siew Cheng Nee
 -   Daryl Lim Kai Zhi
 -   Koh Hui Juan
 
