@@ -16,3 +16,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#ghlink {
+    @apply text-lg sm:text-xl md:text-2xl text-center text-neutral-100 my-10;
+}
+
+#ghlink a {
+    @apply underline underline-offset-2 text-blue-400 hover:text-blue-600;
+}
