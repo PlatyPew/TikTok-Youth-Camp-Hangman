@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TikTok-Youth-Camp-Hangman/static/css/main.a4781ba3.css",
+    "main.css": "/TikTok-Youth-Camp-Hangman/static/css/main.b254b1a6.css",
     "main.js": "/TikTok-Youth-Camp-Hangman/static/js/main.7e221dba.js",
     "static/js/787.20ace30e.chunk.js": "/TikTok-Youth-Camp-Hangman/static/js/787.20ace30e.chunk.js",
     "index.html": "/TikTok-Youth-Camp-Hangman/index.html",
-    "main.a4781ba3.css.map": "/TikTok-Youth-Camp-Hangman/static/css/main.a4781ba3.css.map",
+    "main.b254b1a6.css.map": "/TikTok-Youth-Camp-Hangman/static/css/main.b254b1a6.css.map",
     "main.7e221dba.js.map": "/TikTok-Youth-Camp-Hangman/static/js/main.7e221dba.js.map",
     "787.20ace30e.chunk.js.map": "/TikTok-Youth-Camp-Hangman/static/js/787.20ace30e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4781ba3.css",
+    "static/css/main.b254b1a6.css",
     "static/js/main.7e221dba.js"
   ]
 }
