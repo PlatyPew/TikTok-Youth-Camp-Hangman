@@ -1,4 +1,6 @@
-# TikTok-Youth-Camp-Hangman
+# TikTok Youth Camp Hangman Project
+
+![deploy](https://github.com/PlatyPew/TikTok-Youth-Camp-Hangman/actions/workflows/react.yml/badge.svg)
 
 ## Content
 
@@ -10,69 +12,93 @@
 
 ## The Team
 
-Our team is called < name of team > and consists of:
-
--   Aster Angelic Leong
--   Varun Teja Bondugula
--   Siew Cheng Nee
--   Daryl Lim Kai Zhi
--   Koh Hui Juan
+-   [@PlatyPew](https://github.com/PlatyPew)
+-   [@asterblaster](https://github.com/asterblaster)
+-   [@cnjoanne](https://github.com/cnjoanne)
+-   [@huijuank](https://github.com/huijuank)
+-   [@varunteja32](https://github.com/varunteja32)
 
 ## Short Description
+
 This hangman game is powered by ReactJS and uses the TailwindCSS framework. It allows the player to guess a word, given a category and 9 failure attempts. The streak score of the player will be calculated.
 
 ### Screenshots
-Here are some screenshots of the hangman game. The rest of the screenshots can be found [here](doc/screenshots)
+
+![phone](doc/screenshots/phone.png)
+![tablet](doc/screenshots/tablet.png)
+![desktop](doc/screenshots/desktop.png)
 
 ### Video
-Here is a [video](doc/youtubelink) to show how the game is played.
 
+[![TikTok Hangman Project](https://res.cloudinary.com/marcomontalbano/image/upload/v1653701601/video_to_markdown/images/youtube--AxaYkcasI_s-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/AxaYkcasI_s "TikTok Hangman Project")
 
 ## Directory Tree
-. <br>
-├── LICENSE <br>
-├── README.md <br>
-├── package-lock.json <br>
-├── package.json <br>
-├── postcss.config.js <br>
-├── tailwind.config.js <br>
-├── .gitignore <br>
-├── public <br>
-│   ├── favicon.ico <br>
-│   ├── index.html <br>
-│   ├── manifest.json <br>
-│   ├── robots.txt <br>
-│   ├── images <br>
-│   ├── ├── asset-\<number\>.png <br>
-├── src <br>
-│   ├── App.css * main css file <br>
-│   ├── App.js * main js file <br>
-│   ├── App.test.js <br>
-│   ├── Keyboard.css <br>
-│   ├── Keyboard.js <br>
-│   ├── Phrase.css <br>
-│   ├── Phrase.js <br>
-│   ├── index.css <br>
-│   ├── index.js <br>
-│   ├── logo.svg <br>
-│   ├── reportWebVitals.js <br>
-│   ├── setupTests.js <br>
-│   ├── WordBank <br>
-│   ├── ├── \<category\>.js <br>
-├── .github/workflows <br>
-│   ├── react.yml <br>
 
-The key JavaScript and CSS files used during development of the hangman game can be found [here](src)
-  
+```
+LICENSE
+package-lock.json
+package.json
+postcss.config.js
+public
+├── favicon.ico
+├── images
+│  ├── asset-0.png
+│  ├── asset-1.png
+│  ├── asset-2.png
+│  ├── asset-3.png
+│  ├── asset-4.png
+│  ├── asset-5.png
+│  ├── asset-6.png
+│  ├── asset-7.png
+│  ├── asset-8.png
+│  └── asset-9.png
+├── index.html
+├── manifest.json
+└── robots.txt
+README.md
+src
+├── App.css
+├── App.js
+├── App.test.js
+├── index.css
+├── index.js
+├── Keyboard.css
+├── Keyboard.js
+├── logo.svg
+├── Phrase.css
+├── Phrase.js
+├── reportWebVitals.js
+├── setupTests.js
+└── WordBank
+   ├── aroundthehouse.js
+   ├── beforeandafter.js
+   ├── event.js
+   ├── fictionalcharacter.js
+   ├── foodanddrink.js
+   ├── funandgames.js
+   ├── inthekitchen.js
+   ├── landmark.js
+   ├── livingthing.js
+   ├── movietitle.js
+   ├── occupation.js
+   ├── people.js
+   ├── place.js
+   ├── randomword.js
+   ├── thing.js
+   └── whatareyoudoing.js
+tailwind.config.js
+```
+
+The key JavaScript and CSS files used during development of the hangman game can be found [here](src/)
+
 ## Instructions
 
 #### Hosted website
+
 The hangman game is hosted on GitHub pages Visit [this link](https://platypew.github.io/tiktok-youth-camp-hangman/) to start playing the game immediately.
 
 #### Available scripts
+
 To run the hangman game in the development mode, run the command `npm start`.
 
 To create a production bundle for the hangman game, run the command `npm run build`.
-
-## Project Report
-[The project report can be found here](doc/report.pdf). It includes the planning, technical, project and project retrospective documentation.
